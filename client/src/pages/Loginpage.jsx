@@ -1,6 +1,6 @@
 import "./LoginPage.css";
 import { useState } from "react";
-import { Button, Card, Form } from "react-bootstrap";
+import { Alert, Button, Card, Form } from "react-bootstrap";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import useAuth from "../hooks/useAuth";
@@ -16,6 +16,9 @@ function Loginpage() {
     username: "",
     password: "",
   });
+  const [errorMessage, setErrorMessage] = useState("");
+  const [showError , setShowError] = useState("d-none")
+  const [attempt , setAttempt] = useState(1)
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -40,25 +43,33 @@ function Loginpage() {
   };
 
   const handleLogin = async () => {
+    setShowError("d-none")
     axios
       .post("http://localhost:8080/api/loginpage/login", formData)
       .then((res) => {
         if (res.status == 200) {
           setAuth(res.data);
+          setShowError("d-none")
           navigate(from, { replace: true });
         } else if (res.status == 409) {
-          console.log("Login Failed");
+          setShowError("")
+          setAttempt(attempt+1)
+          setErrorMessage("You attempt " + attempt +" times of invalid password please try again");
         }
       })
-      .catch((err) => {
-        console.error("Error something", err);
+      .catch(() => {
+        setShowError("")
+        setAttempt(attempt+1)
+        setErrorMessage("You attempt " + attempt +" times of invalid password. Please try again");
       });
   };
 
   return (
     <>
       <Card className="LoginCard">
-        <h1 className="mb-4">Login System</h1>
+        <h1 className="mb-4" style={{ fontWeight: "bold" }}>
+          Login System
+        </h1>
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
             <Form.Label className="mb-1" htmlFor="username">
@@ -82,18 +93,21 @@ function Loginpage() {
             </Form.Label>
             <Form.Control
               type="password"
-              placeholder="password"
               id="password"
               onChange={handleChange}
               required
+              style={{ fontFamily: "Kanit" }}
             />
             <Form.Control.Feedback type="invalid">
-              Required Field
+              Please enter your password
             </Form.Control.Feedback>
           </Form.Group>
           <Button className="LoginButton my-3" type="submit">
             Login
           </Button>
+          <Alert className={showError} role="alert" variant="danger">
+            {errorMessage}
+          </Alert>
         </Form>
       </Card>
     </>

@@ -1,0 +1,11 @@
+.mainCard {
+    background-color: white;
+    max-width: 1200px;
+    padding: 2rem !important;
+    height: 90%;
+    min-height: 100vh;
+    display: flexbox;
+    justify-content: center;
+    text-align: left;
+    border-radius: 25px;
+}

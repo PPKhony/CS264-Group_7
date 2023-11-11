@@ -1,0 +1,21 @@
+.eachrow {
+    border-radius: 25px !important;
+    border: none !important;
+    width: 100%;
+    height: auto;
+    min-height: 50px;
+    margin-top: 1rem;
+}
+
+.header {
+    color: gray;
+    display: flex;
+    justify-content: space-around;
+}
+
+.status {
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

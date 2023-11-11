@@ -3,6 +3,7 @@ import Loginpage from "./pages/Loginpage.jsx";
 import HomePage from './pages/HomePage.jsx';
 import { Route, Routes } from "react-router-dom";
 import RequireAuth from "./utils/requireAuth";
+import StudentEvidencePage from './pages/StudentEvidencePage.jsx';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       {/* Protected Path */}
       <Route element={<RequireAuth />}>
         <Route path="/home" element={<HomePage />} />
+        <Route path="/studentevidence" element={<StudentEvidencePage/>}/>
       </Route>
     </Routes>
   );
