@@ -5,10 +5,10 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Loginuser {
-    private String email;
-    private String name;
+public class DB_Login {
+    private String studentId;
     private String time;
     private String type;
-    private Boolean status;
+    private String status;
+    private String round;
 }

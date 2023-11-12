@@ -1,6 +1,6 @@
 package cs.tu.cs264.repository;
 
-import cs.tu.cs264.model.Loginuser;
+import cs.tu.cs264.model.DB_Login;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -12,12 +12,10 @@ public class LoginRepository implements LoginRepositoryInterface{
     JdbcTemplate jdbcTemplate;
 
     @Override
-    public void createLoginLog(Loginuser userLogin) {
+    public void createLoginLog(DB_Login userLogin) {
         String sql = "";
-        jdbcTemplate.update(sql, userLogin.getEmail(), userLogin.getName(), userLogin.getTime(), userLogin.getType(), userLogin.getStatus());
+        jdbcTemplate.update(sql);
     }
-
-    @Override
     public void queryLoginLogByemail(String email) {
 
     }

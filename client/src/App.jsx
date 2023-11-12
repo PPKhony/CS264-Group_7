@@ -11,11 +11,11 @@ function App() {
       {/* Public Path */}
       <Route path="/*" element={<Loginpage/>} />
       <Route path="/login" element={<Loginpage />} />
+      <Route path="/studentevidence" element={<StudentEvidencePage/>}/>
 
       {/* Protected Path */}
       <Route element={<RequireAuth />}>
         <Route path="/home" element={<HomePage />} />
-        <Route path="/studentevidence" element={<StudentEvidencePage/>}/>
       </Route>
     </Routes>
   );

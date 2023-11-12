@@ -9,4 +9,5 @@ import lombok.Setter;
 public class Loginpage {
     private String username;
     private String password;
+    private String attempt;
 }
