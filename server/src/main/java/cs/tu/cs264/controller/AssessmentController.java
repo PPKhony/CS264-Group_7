@@ -1,8 +1,8 @@
 package cs.tu.cs264.controller;
-
-import cs.tu.cs264.model.User;
-import cs.tu.cs264.repository.JdbcUserRepository;
 import java.util.List;
+import cs.tu.cs264.model.Assessment;
+import cs.tu.cs264.repository.JdbcAssessmentRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,19 +11,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = {"FileData"})
-public class UserController {
+@RequestMapping(value = {"Assessment"})
+public class AssessmentController {
     @Autowired
-    private JdbcUserRepository userDao;
+    private JdbcAssessmentRepository userDao;
 
     @PostMapping
-    public void addUser(@RequestBody User user) {
+    public void addAssessment(@RequestBody Assessment assessment) {
 
-        userDao.save(user);
+        userDao.saveAssessment(assessment);
     }
 
     @GetMapping
-    public List<User> getAllUsers() {
-        return userDao.getAllUsers();
+    public List<Assessment> getAllAssessments() {
+        return userDao.gettAllAssessments();
     }
+    
 }
