@@ -10,52 +10,12 @@ public class Request {
         this.studentID = studentID;
     }
 
-    public boolean isAddLate() {
-        return addLate;
+    public String getAdd_drop() {
+        return add_drop;
     }
 
-    public void setAddLate(boolean addLate) {
-        this.addLate = addLate;
-    }
-
-    public boolean isDropW() {
-        return dropW;
-    }
-
-    public void setDropW(boolean dropW) {
-        this.dropW = dropW;
-    }
-
-    public boolean isCrossProgram() {
-        return crossProgram;
-    }
-
-    public void setCrossProgram(boolean crossProgram) {
-        this.crossProgram = crossProgram;
-    }
-
-    public boolean isResign() {
-        return resign;
-    }
-
-    public void setResign(boolean resign) {
-        this.resign = resign;
-    }
-
-    public String getEtc() {
-        return etc;
-    }
-
-    public void setEtc(String etc) {
-        this.etc = etc;
-    }
-
-    public String getSemester() {
-        return semester;
-    }
-
-    public void setSemester(String semester) {
-        this.semester = semester;
+    public void setAdd_drop(String add_drop) {
+        this.add_drop = add_drop;
     }
 
     public String getSubjectID() {
@@ -82,20 +42,12 @@ public class Request {
         this.section = section;
     }
 
-    public String getResignSemester() {
-        return resignSemester;
+    public String getProfessor_fullname() {
+        return professor_fullname;
     }
 
-    public void setResignSemester(String resignSemester) {
-        this.resignSemester = resignSemester;
-    }
-
-    public String getResignYear() {
-        return resignYear;
-    }
-
-    public void setResignYear(String resignYear) {
-        this.resignYear = resignYear;
+    public void setProfessor_fullname(String professor_fullname) {
+        this.professor_fullname = professor_fullname;
     }
 
     public String getCause() {
@@ -106,17 +58,20 @@ public class Request {
         this.cause = cause;
     }
 
+    public String getRequestID() {
+        return requestID;
+    }
+
+    public void setRequestID(String requestID) {
+        this.requestID = requestID;
+    }
+
     private String studentID;
-    private boolean  addLate;
-    private boolean  dropW;
-    private boolean  crossProgram;
-    private boolean  resign;
-    private String  etc;
-    private String  semester;
-    private String  subjectID;
+    private String add_drop;
+    private String subjectID;
     private String subjectName;
-    private String  section;
-    private String  resignSemester;
-    private String  resignYear;
-    private String  cause;
+    private String section;
+    private String professor_fullname;
+    private String cause;
+    private String requestID;
 }

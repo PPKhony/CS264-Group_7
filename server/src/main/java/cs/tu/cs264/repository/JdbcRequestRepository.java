@@ -12,11 +12,9 @@ public class JdbcRequestRepository {
     private JdbcTemplate jdbcTemplate;
 
     public void saveRequest(Request request) {
-        String sql = "INSERT INTO Request (studentID, addLate, dropW, crossProgram, resign, etc, semester, subjectID, subjectName, section, resignSemester, resignYear, cause) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        jdbcTemplate.update(sql, request.getStudentID(), request.isAddLate(), request.isDropW(), request.isCrossProgram(),
-                request.isResign(), request.getEtc(), request.getSemester(), request.getSubjectID(), request.getSubjectName(),
-                request.getSection(), request.getResignSemester(), request.getResignYear(), request.getCause());
+        String sql = "INSERT INTO Request (studentID, add_drop, subjectID, subjectName, section, professor_fullname, cause, requestID) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(sql, request.getStudentID(), request.getAdd_drop(), request.getSubjectID(), request.getSubjectName(), request.getProfessor_fullname(), request.getCause(), request.getRequestID());
     }
     
     public List<Request> getAllRequests() {

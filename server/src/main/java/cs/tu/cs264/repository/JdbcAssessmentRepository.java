@@ -12,9 +12,9 @@ public class JdbcAssessmentRepository {
     private JdbcTemplate jdbcTemplate;
 
     public void saveAssessment(Assessment assessment){
-        String sql = "INSERT INTO Assessment (type, requestID, form_status)" +
-                     "VALUES (?, ?, ?)";
-        jdbcTemplate.update(sql, assessment.getType(), assessment.getRequestID(), assessment.isFormStatus());
+        String sql = "INSERT INTO Assessment (type, requestID, form_status, request_file, professor_fullname)" +
+                     "VALUES (?, ?, ?, ?, ?)";
+        jdbcTemplate.update(sql, assessment.getType(), assessment.getRequestID(), assessment.getFormStatus(), assessment.getRequest_file(), assessment.getProfessor_fullname());
     }
     
     public List<Assessment> gettAllAssessments() {
