@@ -1,2 +1,5 @@
-package cs.tu.cs264.controller;public class Student {
+package cs.tu.cs264.controller;
+
+public class Student {
+
 }

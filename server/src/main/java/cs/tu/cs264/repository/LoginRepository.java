@@ -13,10 +13,8 @@ public class LoginRepository implements LoginRepositoryInterface{
 
     @Override
     public void createLoginLog(DB_Login userLogin) {
-        String sql = "";
-        jdbcTemplate.update(sql);
-    }
-    public void queryLoginLogByemail(String email) {
-
+        String sql = "INSERT INTO Login (studentId, time, type, status) " +
+                "VALUES (?, ?, ?, ?)";
+        jdbcTemplate.update(sql , userLogin.getStudentId(), userLogin.getTime(), userLogin.getType(), userLogin.getStatus());
     }
 }

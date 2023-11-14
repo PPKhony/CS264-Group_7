@@ -10,5 +10,4 @@ public class DB_Login {
     private String time;
     private String type;
     private String status;
-    private String round;
 }

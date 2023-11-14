@@ -1,11 +1,11 @@
 package cs.tu.cs264.model;
 
-public class User {
+public class DB_Attachment {
     public String getFile() {
         return file;
     }
 
-    public void setFile(String file) {
+    public void File(String file) {
         this.file = file;
     }
 

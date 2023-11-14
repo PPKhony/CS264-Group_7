@@ -27,28 +27,29 @@ public class LoginController {
         String data = PostReqToTUApi.postReqToTUApi(loginPage);
 
         Person person = new Gson().fromJson(data, Person.class);
-//        DB_Login obj = new DB_Login();
-//        LocalDateTime time = LocalDateTime.now();
-//
-//        obj.setRound(loginPage.getAttempt());
-//        obj.setStatus(person.getType());
-//        obj.setStudentId(loginPage.getUsername());
-//        obj.setTime(time.toString());
-//        obj.setType(person.getType());
-//        loginRepository.createLoginLog(obj);
+        DB_Login obj = new DB_Login();
+        LocalDateTime time = LocalDateTime.now();
 
+        obj.setStudentId(loginPage.getUsername());
+        obj.setTime(time.toString());
+        obj.setType(person.getType());
+
+        ResponseEntity<String> response;
         if (person.getStatus().equals(false)) {
-            ResponseEntity<String> response = ResponseEntity
+            obj.setStatus("false");
+            response = ResponseEntity
                     .status(HttpStatus.CONFLICT)
                     .body(data);
-            return response;
+
+        } else {
+            obj.setStatus("true");
+            response = ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body(data);
         }
-        ResponseEntity<String> response = ResponseEntity
-                .status(HttpStatus.OK)
-                .body(data);
+
+        loginRepository.createLoginLog(obj);
         return response;
     }
-
-
 
 }

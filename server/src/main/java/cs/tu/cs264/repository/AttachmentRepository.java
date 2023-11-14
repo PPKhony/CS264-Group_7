@@ -1,23 +1,24 @@
 package cs.tu.cs264.repository;
-import cs.tu.cs264.model.User;
+import cs.tu.cs264.model.DB_Attachment;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 @Repository
-public class JdbcUserRepository {
+public class AttachmentRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public void save(User user) {
+    public void save(DB_Attachment DBAttachment) {
         String sql = "INSERT INTO FileData (FileName)"
                     + "VALUES (?)";
-        jdbcTemplate.update(sql, user.getFile());
+        jdbcTemplate.update(sql, DBAttachment.getFile());
     }
 
-    public List<User> getAllUsers() {
+    public List<DB_Attachment> getAllUsers() {
         String sql = "SELECT * FROM FileData";
-        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(User.class));
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(DB_Attachment.class));
     }
 }
