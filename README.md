@@ -12,21 +12,21 @@ o Complete handling Loginfailed in part UI.
 
 
 
-#comment code (server-backend)#       
-main - java        
+## comment code (server-backend)       
+o main - java        
 1.Controller
 - AssessmentController = controller provides endpoints to add an assessment via HTTP POST and retrieve a list of all assessments via HTTP GET The actual implementation details of saving and retrieving assessments are delegated to the JdbcAssessmentRepository
 
 - AttachController = The controller facilitates adding Attach data through HTTP POST and retrieving all Attach items through HTTP GET It utilizes a repository (JdbcAttachRepository) that has been injected to handle database connectivity.
-
--FileAttachmentController = The controller represents a Spring Framework Controller class used for handling the uploading of PDF files through HTTP POST requests. 
-Function 
-1.Creates the destination directory if it doesn't exist. 
-2.Saves the uploaded PDF file to the destination directory. 
-3.Responds with a success message, including the file path. 
+  
+- FileAttachmentController = The controller represents a Spring Framework Controller class used for handling the uploading of PDF files through HTTP POST requests.   
+Function    
+1.Creates the destination directory if it doesn't exist.   
+2.Saves the uploaded PDF file to the destination directory.   
+3.Responds with a success message, including the file path.   
 This controller enables the uploading of PDF files and saves them to a specified folder.
 
--LoginController = This controller class is used to manage requests related to the login page in your Spring application. It consists of several parts that handle sending requests to the TU API and logging login-related data into the database.                  
+- LoginController = This controller class is used to manage requests related to the login page in your Spring application. It consists of several parts that handle sending requests to the TU API and logging login-related data into the database.                  
 Function                     
 1.Sending a POST request to the TU API with data from loginPage.         
 2.Converting response data to a Person object using Gson.          
@@ -53,10 +53,11 @@ Handles HTTP POST requests to "FileData" by saving a new User object using the s
 2.Getting All Users:
 Handles HTTP GET requests to "FileData" by retrieving a list of all users using the getAllUsers method from the injected JdbcUserRepository and returning the list.
 
+2.External model
 - Class PostReqToTUApi = includes a static method postReqToTUApi. This class is used to send a POST request to the TU Authentication API  for verifying user credentials. this class provides a method for sending a POST request to the TU Authentication API with provided username and password credentials and retrieves the response body. The result can be used for further processing or validation in the application.
+  
+3.Model
+- in the model, there exists a Java subclass that functions as a model. This class serves as a template for generating objects and offers methods for retrieving and altering the attributes of these objects.
 
-2. Model
-in the model, there exists a Java subclass that functions as a model. This class serves as a template for generating objects and offers methods for retrieving and altering the attributes of these objects.
-
-3.Repository
-The entirety of the Java code in this class is dedicated to handling and overseeing data interactions with the database in a Spring application associated with assessments. The code employs JDBC Template and SQL queries for this purpose.
+4.Repository
+- The entirety of the Java code in this class is dedicated to handling and overseeing data interactions with the database in a Spring application associated with assessments. The code employs JDBC Template and SQL queries for this purpose.
