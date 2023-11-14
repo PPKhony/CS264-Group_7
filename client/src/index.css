@@ -89,3 +89,7 @@ button:focus-visible {
 *::-moz-selection {
   background: none;
 }
+
+li {
+  margin-top: 10px;
+}

@@ -13,14 +13,12 @@ function Loginpage() {
   
   const [validated, setValidated] = useState(false);
   const [formData, setFormData] = useState({
-    username: "",
-    password: "",
   });
   const [errorMessage, setErrorMessage] = useState("");
   const [showError , setShowError] = useState("d-none")
   const [attempt , setAttempt] = useState(1)
 
-  const handleSubmit = (event) => {
+  const handleSubmit =  (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
@@ -40,6 +38,7 @@ function Loginpage() {
       ...formData,
       [id]: value,
     });
+    console.log(formData);
   };
 
   const handleLogin = async () => {
