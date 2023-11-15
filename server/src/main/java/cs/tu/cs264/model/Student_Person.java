@@ -7,7 +7,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Person {
+public class TU_Person {
     private Boolean status;
     private String message;
     private String type;

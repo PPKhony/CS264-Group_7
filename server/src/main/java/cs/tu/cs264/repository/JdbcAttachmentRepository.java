@@ -1,5 +1,5 @@
 package cs.tu.cs264.repository;
-import cs.tu.cs264.model.Attach;
+import cs.tu.cs264.model.DB_Attachment;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -11,15 +11,15 @@ public class JdbcAttachRepository{
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public void saveAttach(Attach attach) {
+    public void saveAttach(DB_Attachment DBAttachment) {
         String sql = "INSERT INTO Attach (studentID, requestID, request_file, evidence_type) " +
                 "VALUES (?, ?, ?, ?)";
-        jdbcTemplate.update(sql, attach.getStudentID(), attach.getRequestID(), attach.getRequest_file(), attach.getEvidence_type());
+        jdbcTemplate.update(sql, DBAttachment.getStudentID(), DBAttachment.getRequestID(), DBAttachment.getRequest_file(), DBAttachment.getEvidence_type());
     }
 
-    public List<Attach> getAllAttachs(){
+    public List<DB_Attachment> getAllAttachs(){
         String sql = "SELECT * FROM Attach";
-        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Attach.class));
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(DB_Attachment.class));
     }
 }
 
