@@ -6,11 +6,16 @@
 - Uncomplete handling Login failed in part UI.
 
 ## Commit v0.2.0
-o Complete handling Loginfailed in part UI.
+x Complete handling Loginfailed in part UI.
 - Complete implement studentEvidencePages.
 - Complete implement studentEvidencePages/MoreInfo.
 
+## Commit v0.3.0
+- Complete login pages has default value by login authentication
 
+## Commit v0.4.0
+- Complete implement studentEvidencePages + Details page 
+- Complete implement studentEvidencePages backend + details
 
 ## Comment code (server-backend)       
 o main - java        
