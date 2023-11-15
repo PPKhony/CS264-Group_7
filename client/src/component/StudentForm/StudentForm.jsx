@@ -3,8 +3,10 @@ import { CourseContext } from "../../context/CourseContext.jsx";
 import { AlertHeading, Button, Form , Row} from "react-bootstrap";
 import RegisterSubjectForm from "./RegisterSubjectForm.jsx";
 import WithdrawSubjectForm from "./WithdrawSubjectForm.jsx";
+import useAuth from "../../hooks/useAuth.jsx";
 
 function StudentForm() {
+  const {auth} = useAuth();
   const { setStudent, student , handleData , register , withdraw , handleApipost} = useContext(CourseContext);
   const [validated, setValidated] = useState(false);
 
@@ -29,9 +31,12 @@ function StudentForm() {
     e.preventDefault()
   };
 
-  const handleChange =  (event) => {
+  const handleChange = (event) => {
     const { id, value } =  event.target;
      setStudent({
+      "email": auth.email,
+      "name": auth.displayname_th,
+      "studentID": auth.username,
       ...student,
       [id]: value,
     });
@@ -48,10 +53,10 @@ function StudentForm() {
         <h2 className="my-3">Section 1 : ข้อมูลเบื้องต้น</h2>
         <Form.Group className="my-2">
           <Form.Label>Email address</Form.Label>
-          <Form.Control  type="email" id="email" onChange={handleChange} required/>
+          <Form.Control  type="email" id="email" value={auth.email} disabled onChange={handleChange} required/>
         </Form.Group>
         <Row md = {2} lg ={3}>
-        <Form.Group as="Col">
+        <Form.Group as="Col"  className="my-2">
         <Form.Label>คำนำหน้าชื่อ</Form.Label>
         <Form.Select  id="prefix" onChange={handleChange} required> 
             <option value="">Select คำนำหน้าชื่อ</option>
@@ -63,11 +68,11 @@ function StudentForm() {
         
         <Form.Group className="my-2" as="Col">
           <Form.Label>ชื่อ นามสกุล</Form.Label>
-          <Form.Control type="text" id="firstname" onChange={handleChange} required/>
+          <Form.Control type="text" value = {auth.displayname_th} disabled id="firstname" onChange={handleChange} required/>
         </Form.Group>
         <Form.Group as="Col" className="my-2">
           <Form.Label>รหัสนักศึกษา</Form.Label>
-          <Form.Control type="text" id="studentid" onChange={handleChange} required/>
+          <Form.Control type="text" id="studentid" value={auth.username} disabled onChange={handleChange} required/>
         </Form.Group>
         <Form.Group  as="Col" className="my-2">
           <Form.Label>ชั้นปี</Form.Label>
@@ -83,11 +88,11 @@ function StudentForm() {
         </Form.Group>
         <Form.Group as="Col" className="my-2">
           <Form.Label>เบอร์โทรศัพท์มือถือ</Form.Label>
-          <Form.Control type="text" id="studentphone" onChange={handleChange} required/>
+          <Form.Control type="text" id="studentPhone" onChange={handleChange} required/>
         </Form.Group>
         <Form.Group as="Col" className="my-2">
           <Form.Label>เบอร์โทรศัพท์ผู้ปกครอง</Form.Label>
-          <Form.Control type="text" id="parentphone" onChange={handleChange} required/>
+          <Form.Control type="text" id="parentPhone" onChange={handleChange} required/>
         </Form.Group>
         </Row>
         <h4 className="mt-4">รายละเอียดที่พักอาศัย</h4>
@@ -116,10 +121,10 @@ function StudentForm() {
         <h4 className="mt-4">รายละเอียดคำร้อง</h4>
         <Form.Group className="my-2">
           <Form.Label>ประสงค์ต้องการยื่นคำร้องในเรื่อง</Form.Label>
-          <Form.Select type="radio" id = "topic" onChange={handleChange} required>
+          <Form.Select type="radio" id = "topic" onChange={handleChange} required> 
             <option value="">Please select</option>
             <option label="ประสงค์ขอเพิ่ม-ถอนรายวิชาล่าช้า (w)" value="ประสงค์ขอเพิ่ม-ถอนรายวิชาล่าช้า(w)" /> 
-            <option label="ขอลาออก" value="ขอลาออก" />
+            {/* <option label="ขอลาออก" value="ขอลาออก" /> */}
           </Form.Select>
         </Form.Group>
         <RegisterSubjectForm/>

@@ -6,7 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 
-public class Loginpage {
+public class Web_Loginpage {
     private String username;
     private String password;
     private String attempt;

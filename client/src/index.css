@@ -25,6 +25,11 @@
   
 }
 
+.navbar,
+.navbar-default {
+  background-image: none !important; /* override background image gradient w/ flat color */
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -78,16 +83,6 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
-
-* {
-  user-select: none;
-}
-*::selection {
-  background: none;
-}
-*::-moz-selection {
-  background: none;
 }
 
 li {

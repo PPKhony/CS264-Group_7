@@ -5,11 +5,15 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class DB_Subject {
-    private String subjectCode;
-    private String subjectName;
-    private String subjectSection;
-    private String subjectDate;
-    private String subjectCredit;
-    private String subjectTeacher;
+public class DB_Request {
+    private String UUID;
+    private String courseCode;
+    private String courseName;
+    private String credits;
+    private String dayTime;
+    private String instructor;
+    private String section;
+
+    private String type;
+    private String status;
 }

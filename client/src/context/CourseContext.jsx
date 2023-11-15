@@ -13,7 +13,7 @@ function CourseProvider({children}) {
   const handleApipost = async() => {
     console.log(total);
     try {
-      const response = await axios.post('https://httpbin.org/post', total);
+      const response = await axios.post('http://localhost:8080/api/student/createRequest', total);
       console.log('Response:', response.data);
       // Handle success, e.g., show a success message or redirect
     } catch (error) {

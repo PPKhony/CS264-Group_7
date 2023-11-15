@@ -38,7 +38,6 @@ function Loginpage() {
       ...formData,
       [id]: value,
     });
-    console.log(formData);
   };
 
   const handleLogin = async () => {
@@ -80,7 +79,6 @@ function Loginpage() {
               id="username"
               onChange={handleChange}
               required
-              pattern="^.{10}$"
             />
             <Form.Control.Feedback type="invalid">
               Student ID must have 10 digit

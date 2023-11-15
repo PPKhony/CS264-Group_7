@@ -60,6 +60,7 @@ function WithdrawSubjectForm() {
               <Form.Group>
                 <Form.Label>{config.label}</Form.Label>
                 <Form.Control
+                  className="my-1"
                   type="text"
                   onChange={(e) =>
                     handleFieldChange(field.id, config.key, e.target.value)
