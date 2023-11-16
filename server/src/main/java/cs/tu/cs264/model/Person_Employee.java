@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Employee_Person {
+public class Person_Employee {
     private String status;
     private String message;
     private String type;

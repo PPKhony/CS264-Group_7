@@ -5,6 +5,7 @@ import cs.tu.cs264.model.DB_Student;
 import cs.tu.cs264.model.Web_Approve;
 import cs.tu.cs264.repository.JdbcStudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,4 +37,6 @@ public class StudentController {
         return jdbcStudentRepository.updateRequestByUUIDAndSubjectName(web_approve.getStatus(), web_approve.getUuid(),
                 web_approve.getCoursecode(),web_approve.getDetail());
     }
+
+
 }

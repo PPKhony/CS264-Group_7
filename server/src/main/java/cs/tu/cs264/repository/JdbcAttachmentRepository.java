@@ -12,9 +12,9 @@ public class JdbcAttachmentRepository {
     private JdbcTemplate jdbcTemplate;
 
     public void saveAttach(DB_Attachment DBAttachment) {
-        String sql = "INSERT INTO Attach (studentID, requestID, request_file, evidence_type) " +
+        String sql = "INSERT INTO Attach (studentID, requestID, request_file) " +
                 "VALUES (?, ?, ?, ?)";
-        jdbcTemplate.update(sql, DBAttachment.getStudentID(), DBAttachment.getRequestID(), DBAttachment.getRequest_file(), DBAttachment.getEvidence_type());
+        jdbcTemplate.update(sql, DBAttachment.getStudentID(), DBAttachment.getRequestID());
     }
 
     public List<DB_Attachment> getAllAttachs(){

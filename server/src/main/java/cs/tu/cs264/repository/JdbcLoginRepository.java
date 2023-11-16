@@ -6,12 +6,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class JdbcLoginRepository implements LoginRepositoryInterface{
+public class JdbcLoginRepository {
 
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    @Override
     public void createLoginLog(DB_Login userLogin) {
         String sql = "INSERT INTO Login (studentId, time, type, status) " +
                 "VALUES (?, ?, ?, ?)";

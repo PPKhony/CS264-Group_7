@@ -23,6 +23,14 @@ public class JdbcStudentRepository {
         u = UUID.randomUUID();
     }
 
+    public DB_Student querystuIDByUUID(String uuid) {
+        try {
+            String sql = "SELECT studentid from student WHERE uuid = ?";
+            return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(DB_Student.class), uuid);
+        } catch (Exception e) {
+             return null;
+        }
+    }
     public String saveRequest(DB_Student db_student) {
         try {
             String uuid = u.toString();
@@ -46,7 +54,7 @@ public class JdbcStudentRepository {
             for (DB_Request s: db_student.getWithdraw()) {
                 jdbcTemplate.update(sql_2,uuid,s.getCourseCode(),s.getCourseName(),s.getCredits(),s.getDayTime(),s.getInstructor(),s.getSection(),"withdraw");
             }
-            return "Data was save sucessfully";
+            return uuid;
         } catch (Exception e) {
             return "Data was occurs something";
         } finally {

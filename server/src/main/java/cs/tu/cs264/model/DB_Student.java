@@ -7,6 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class DB_Student {
+    private String uuid;
     private String date;
 
     private String email;

@@ -10,7 +10,7 @@ function RequireAuth() {
             ? auth?.type=="student"
                 ?<StudentFormPage/>
                 :<StudentEvidencePage/>
-            : <Navigate to="/login" state={{from: location}} replace/>
+            : <Navigate to="/unauthorized" state={{from: location}} replace/>
     );
 }
 

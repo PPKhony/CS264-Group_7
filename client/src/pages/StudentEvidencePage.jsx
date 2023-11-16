@@ -25,7 +25,7 @@ function StudentEvidencePage() {
         setResponse(response.data);
         // console.log('Response:', response.data);
       })
-      .catch(error => {
+      .catch((error) => {
         // Handle error
         // console.error('Error fetching data:', error);
       });
