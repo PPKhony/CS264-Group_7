@@ -31,6 +31,8 @@ Function
 3.Responds with a success message, including the file path.   
 This controller enables the uploading of PDF files and saves them to a specified folder.
 
+- FileAttachmentDetailController = The controller is responsible for managing file attachment connections through a RESTful API using the Spring Framework. It utilizes the JdbcAttachmentRepository for database interactions. 
+
 - LoginController = This controller class is used to manage requests related to the login page in your Spring application. It consists of several parts that handle sending requests to the TU API and logging login-related data into the database.                  
 Function                     
 1.Sending a POST request to the TU API with data from loginPage.         
@@ -49,13 +51,15 @@ Handles HTTP POST requests to the "Request" path by saving a new Request object 
 2.Getting All Requests
 Handles HTTP GET requests to the "Request" path by retrieving a list of all requests using the getAllRequests method from the injected JdbcRequestRepository and returning the list.
 
-- Student class = 
+- Student controller =  RESTful API for managing student requests and approvals, interacting with a database through the JdbcStudentRepository. The endpoints allow creating requests, querying requests by instructor, querying student data by UUID, and updating request status.
 
 - UserController = responsible for handling HTTP requests related to a resource named "FileData" in application.
-this controller is responsible for 
-1.Adding a User:
+this controller is responsible for
+			
+	1.Adding a User:
 Handles HTTP POST requests to "FileData" by saving a new User object using the save method from the injected JdbcUserRepository.
-2.Getting All Users:
+			
+	2.Getting All Users:
 Handles HTTP GET requests to "FileData" by retrieving a list of all users using the getAllUsers method from the injected JdbcUserRepository and returning the list.
 
 2.External model
